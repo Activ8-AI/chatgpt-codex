@@ -1,0 +1,14 @@
+{
+  "runtime": {
+    "data_dir": "data",
+    "db_file": "codex.db"
+  },
+  "telemetry": {
+    "heartbeat_channel": "local",
+    "heartbeat_interval_seconds": 30
+  },
+  "autonomy": {
+    "loop_interval_seconds": 5,
+    "loop_label": "AUTONOMY_LOOP"
+  }
+}
