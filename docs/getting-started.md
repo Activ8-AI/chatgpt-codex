@@ -1,3 +1,5 @@
+<!-- chore(docs): clarify and complete getting-started.md -->
+
 ## Getting started
 
 ### CLI usage
@@ -8,7 +10,7 @@
 | `codex "..."`      | Initial prompt for interactive TUI | `codex "fix lint errors"`       |
 | `codex exec "..."` | Non-interactive "automation mode"  | `codex exec "explain utils.ts"` |
 
-Key flags: `--model/-m`, `--ask-for-approval/-a`.
+Key flags: `--model`/`-m`, `--ask-for-approval`/`-a`.
 
 ### Resuming interactive sessions
 
@@ -61,11 +63,13 @@ Below are a few bite-size examples you can copy-paste. Replace the text in quote
 
 ### Memory with AGENTS.md
 
-You can give Codex extra instructions and guidance using `AGENTS.md` files. Codex looks for `AGENTS.md` files in the following places, and merges them top-down:
+You can give Codex extra instructions and guidance using `AGENTS.md` files. Codex looks for `AGENTS.md` files in the following places and merges them top-down (later files override earlier ones):
 
-1. `~/.codex/AGENTS.md` - personal global guidance
-2. `AGENTS.md` at repo root - shared project notes
-3. `AGENTS.md` in the current working directory - sub-folder/feature specifics
+1. `~/.codex/AGENTS.md` – personal global guidance
+2. `AGENTS.md` at repo root – shared project notes
+3. `AGENTS.md` in the current working directory – sub-folder/feature specifics
+
+Because the files are merged in that order, a local `AGENTS.md` in your working directory takes precedence over the repo-root file and the global file.
 
 For more information on how to use AGENTS.md, see the [official AGENTS.md documentation](https://agents.md/).
 
@@ -73,11 +77,13 @@ For more information on how to use AGENTS.md, see the [official AGENTS.md docume
 
 #### Use `@` for file search
 
-Typing `@` triggers a fuzzy-filename search over the workspace root. Use up/down to select among the results and Tab or Enter to replace the `@` with the selected path. You can use Esc to cancel the search.
+Typing `@` triggers a fuzzy-filename search over the workspace root. Use up/down to navigate the results and Tab or Enter to replace the `@` with the selected file path. Press Esc to cancel the search.
+
+For example, typing `@comp` might match files like `src/components/Button.tsx`; selecting one inserts the full path into your prompt.
 
 #### Image input
 
-Paste images directly into the composer (Ctrl+V / Cmd+V) to attach them to your prompt. You can also attach files via the CLI using `-i/--image` (comma‑separated):
+Paste images directly into the composer (Ctrl+V / Cmd+V) to attach them to your prompt. You can also attach files via the CLI using `-i`/`--image` (comma-separated):
 
 ```bash
 codex -i screenshot.png "Explain this error"
@@ -102,4 +108,12 @@ codex completion fish
 
 #### `--cd`/`-C` flag
 
-Sometimes it is not convenient to `cd` to the directory you want Codex to use as the "working root" before running Codex. Fortunately, `codex` supports a `--cd` option so you can specify whatever folder you want. You can confirm that Codex is honoring `--cd` by double-checking the **workdir** it reports in the TUI at the start of a new session.
+Sometimes it is not convenient to `cd` to the directory you want Codex to use as the "working root" before running Codex. The `--cd` flag (or its short alias `-C`) lets you specify the working root directly, so you can stay in your current directory while Codex operates elsewhere.
+
+```shell
+# Run Codex from anywhere while targeting a different project directory
+codex --cd path/to/project "explain this codebase"
+codex -C ~/repos/my-app "run the tests and fix any failures"
+```
+
+You can confirm that Codex is honoring `--cd` by checking the **workdir** it reports in the TUI at the start of a new session.
