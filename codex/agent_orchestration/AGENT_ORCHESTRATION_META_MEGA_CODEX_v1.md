@@ -21,8 +21,8 @@ You can drop this directly into a repo as:
 **Document Class:** Meta Mega Codex
 **Version:** v1
 **Date:** 20251127
-**Governance:** Activ8 AI Operational Execution & Accountability Charter
-**Status:** CANON
+**Governance:** Codex repository governance
+**Status:** DRAFT
 
 ---
 
@@ -32,7 +32,7 @@ You can drop this directly into a repo as:
 
 # ============================================================
 
-This layer is the *constitutional* definition of how multi-agent systems operate under Activ8 AI.
+This layer is the *constitutional* definition of how multi-agent systems operate within this repository.
 It defines lanes, boundaries, oversight, escalation, drift protections, and authority.
 
 Nothing here is implementation-specific.
@@ -268,7 +268,7 @@ Still zero assumptions about runtime infra — this is a *contract*, not a claim
 * Selects target domain Governor
 * Applies Charter routing rules
 * Logs all decisions
-* Requires explicit approval for Tier-2 and Tier-3 tasks
+* Requires explicit approval for Tier-3 tasks
 * Emits task packets downstream
 
 ---
@@ -439,14 +439,14 @@ Supervisor aggregates logs for drift detection.
 
 # ============================================================
 
-## **1. This Codex Is Now CANON**
+## **1. Status**
 
-All orchestration must follow:
+If adopted by the repository, orchestration should follow:
 
 * L1 (Charter layer)
 * L2 (MAOS layer)
 
-No agent, script, module, or human may bypass these rules.
+This document is guidance and does not supersede repository policy or human decision-making.
 
 ---
 
