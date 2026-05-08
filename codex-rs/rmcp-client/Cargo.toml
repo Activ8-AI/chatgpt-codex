@@ -9,7 +9,7 @@ workspace = true
 [dependencies]
 anyhow = "1"
 mcp-types = { path = "../mcp-types" }
-rmcp = { version = "0.7.0", default-features = false, features = [
+rmcp = { version = "1.4.0", default-features = false, features = [
     "base64",
     "client",
     "macros",
